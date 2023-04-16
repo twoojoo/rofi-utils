@@ -1,6 +1,6 @@
 ## Rofi Custom Menus
 
-#### Scripts list
+### Scripts list
 
 - **rofi-path-launcher**: by reading a json config file launch applications by poviding them custom paths as arguments
 	- default config file: ***~/.rofi-path-launcher.config.json*** (will be created at the first run if doesn't exist yet)
@@ -33,6 +33,6 @@
 - **rofi-chromiun-bookmarks**: automatically reads saved Chromium bookmarks and provide a menu for them
 	> Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
 
-#### Theming
+### Theming
 
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
