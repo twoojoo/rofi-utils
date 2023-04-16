@@ -36,16 +36,17 @@
 - **rofi-chromiun-bookmarks**: automatically reads saved Chromium bookmarks and provide a menu for them
 	- Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
 	- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file &lt;path&gt;**
-	- gets bookmarks both from **bookmark_bar** and **other** bookmark collections (custom folders not yet implemented)
-	- be sure that bookamark names are **unique**
-	- for some reason, if the bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation. Maybe this could be fixed in the script itself.
-	- I find very proficient to use this pattern when naming bookmarks:
-	
-		***Personal/Utils/&lt;my-company-name&gt; - &lt;website-name&gt; [- &lt;section-name&gt;]***
+	- gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
+	- **bookmark naming**:
+		- be sure that bookamark names are **unique** among all bookmarks folders
+		- for some reason, if the bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation. Maybe this could be fixed in the script itself.
+		- I find very proficient to use this pattern when naming bookmarks:
+		
+			***Personal/Utils/&lt;my-company-name&gt; - &lt;website-name&gt; [- &lt;section-name&gt;]***
 
-		(e.g. "Personal - Gmail", "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode", etc...)
+			(e.g. "Personal - Gmail", "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode", etc...)
 
-		This helps a lot in keeping them tidied in the rofi menu.
+			This helps a lot in keeping them tidied in the rofi menu.
 
 <br>
 
