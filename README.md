@@ -5,7 +5,7 @@ A collection of useful custom menu based on rofi.
 - [Installation](#installation)
 - [Scripts](#Scripts)
     - [rofi-path-launcher](#rofi-path-launcher)
-    - [rofi-chromium-bookmarks](#rofi-chromium-bookmarks)
+    - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
 - [Theming](#Theming)
 
 ## Installation
