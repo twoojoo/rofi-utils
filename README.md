@@ -10,9 +10,7 @@ git clone git@github.com:twoojoo/rofi-scripts.git
 
 ### Scripts list
 
-<br>
-
-### rofi-path-launcher
+#### rofi-path-launcher
 By reading a json config file launch applications by poviding them custom paths as arguments
 
 - default config file: ***~/.rofi-path-launcher.config.json*** (will be created at the first run if doesn't exist yet)
