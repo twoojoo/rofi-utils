@@ -22,7 +22,7 @@ done
 
 ## if no config in options, use default 
 if [[ "$config" == "" ]]; then 
-	config_path="${HOME}/.1launcher.config.json"
+	config_path="${HOME}/.rofi-path-launcher.config.json"
 	if [[ ! -f $config_path ]]; then 
 		touch $config_path
 		echo "{}" > $config_path
