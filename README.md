@@ -55,12 +55,10 @@ By reading a json config file launch applications by poviding them saved custom 
 automatically reads saved Chromium bookmarks and provide a menu for them
 
 - options:
-    - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file (must have the same structures of Chromium's one)
+    - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file. Must have the same structures of Chromium's one (default: ***$HOME/.config/chromium/Default/Bookmarks***)
     - **-b|--alt-browser *&lt;browser&gt;***: provide an alternative browser (*its command*) to open the urls (e.g. *-b firefox, -b konqueror, -b lynx,* etc...)
     - **-d|--debug**: run in debug mode
 
-- Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
-- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file *&lt;path&gt;***
 - gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
 - **bookmarks naming**:
 	- be sure that bookamarks names are **unique** among all bookmarks folders
