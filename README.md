@@ -1,7 +1,7 @@
 ## Rofi Custom Menus
 
 - **rofi-path-launcher**: by reading a json config file (default: *~/.rofi-path-launcher.config.json*) launch applications by poviding them custom paths as arguments
-	- example config: 
+	- example config (*&lt;path&gt;* is a placeholder for the selected path): 
 	```json
 	{
 	    "CodeOSS": {
