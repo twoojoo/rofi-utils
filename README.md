@@ -59,7 +59,7 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 - gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
 - **options**:
     - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file (must have the same structures of Chromium's one)
-    - **-b|--alt-browser *<browser>***: provide an alternative browser (*it's command*) to open the urls (e.g. *-b firefox, -b konqueror, -b lynx,* etc...)
+    - **-b|--alt-browser *&lt;browser&gt;***: provide an alternative browser (*it's command*) to open the urls (e.g. *-b firefox, -b konqueror, -b lynx,* etc...)
     - **-d|--debug**: run in debug mode
 - **bookmarks naming**:
 	- be sure that bookamarks names are **unique** among all bookmarks folders
