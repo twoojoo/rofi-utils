@@ -35,6 +35,9 @@
 	- gets bookmarks both from **bookmark_bar** and **other** bookmark collections (custom folders not yet implemented)
 	- be sure that bookamark names are **unique**
 	- for some reason if the bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation. Maybe this could be fixed in the script itself.
+	- I find very proficient to use this pattern for naming bookmarks:
+		***&lt;Personal/Utils/#Company#&gt; - &lt;Website&gt; [- &lt;Section&gt;]***
+		(e.g: Personal - Github - Repositories)
 
 ### Theming
 
