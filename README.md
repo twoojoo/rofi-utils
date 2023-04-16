@@ -1,5 +1,13 @@
 ## Rofi Custom Menus
 
+### Installation
+
+Just clone this repository and a shortcut for each script
+
+```bash
+git clone git@github.com:twoojoo/rofi-scripts.git
+```
+
 ### Scripts list
 
 <br>
