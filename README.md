@@ -31,7 +31,10 @@
 	```
 
 - **rofi-chromiun-bookmarks**: automatically reads saved Chromium bookmarks and provide a menu for them
-	> Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
+	- Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
+	- gets bookmarks both from **bookmark_bar** and **other** bookmark collections
+	- be sure that bookamark names are **unique**
+	- for some reason if the bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation.
 
 ### Theming
 
