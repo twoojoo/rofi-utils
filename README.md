@@ -54,13 +54,14 @@ By reading a json config file launch applications by poviding them saved custom 
 
 automatically reads saved Chromium bookmarks and provide a menu for them
 
-- Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
-- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file *&lt;path&gt;***
-- gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
-- **options**:
+- options:
     - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file (must have the same structures of Chromium's one)
     - **-b|--alt-browser *&lt;browser&gt;***: provide an alternative browser (*its command*) to open the urls (e.g. *-b firefox, -b konqueror, -b lynx,* etc...)
     - **-d|--debug**: run in debug mode
+
+- Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
+- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file *&lt;path&gt;***
+- gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
 - **bookmarks naming**:
 	- be sure that bookamarks names are **unique** among all bookmarks folders
 	- for some reason, if a bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation. Maybe this could be fixed in the script itself.
