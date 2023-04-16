@@ -9,7 +9,18 @@ function print_error {
 	rofi -e "Error: $1" 
 }
 
+## use default bookmark file or custom one
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
+for (( i=1; i <= "$#"; i++ )); do
+	case ${!i} in "-f" | "--bookmarks-file")
+		value=$(($i + 1))
+		echo $value
+		bookmarks_path="${!value}"
+		echo $bookmarks_path
+		shift
+	esac
+done
+
 
 slected_bookmark=$({ 
 	echo $(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path); 
