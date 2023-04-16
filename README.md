@@ -28,4 +28,4 @@
 	```
 
 - **rofi-chromiun-bookmarks**: automatically reads saved Chromium bookmarks and provide a menu for them
-	> bookmarks are stored in *$HOME/.config/chromium/Default/Bookmarks*
+	> Chromium bookmarks are stored in *$HOME/.config/chromium/Default/Bookmarks*
