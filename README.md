@@ -70,7 +70,9 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 		(e.g. *"Personal - Gmail", "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode"*, etc...)
 
 		This helps a lot keeping them tidy in the rofi menu.
-- **todo**: implement a remove option (an add options is also possible but it's way more easy to create the bookmark from the chromium tab itself)
+- **todo**: 
+    - implement a remove option (an add options is also possible but it's way more easy to create the bookmark from the chromium tab itself)
+    - fix consecutive space char bug
 <br>
 
 ## Theming
