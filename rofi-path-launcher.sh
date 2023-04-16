@@ -7,6 +7,7 @@ script_path=$(realpath "$0")
 script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
 script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
+theme_error="${script_dir}theme-error.rasi"
 
 ## get config from options
 config=""
@@ -84,7 +85,7 @@ function add_path_to_program {
 
 				echo $new_config > $config_path
 				config=$(cat $config_path);
-			else echo "path not valid"; fi
+			else print_error "invalid path ($path)"; fi
 
 			get_program_path $program
 	fi
@@ -140,6 +141,10 @@ function remove_program {
 	config=$(cat $config_path)
 
 	get_program
+}
+
+function print_error {
+	rofi -e "Error: $1" 
 }
 
 get_program
