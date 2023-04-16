@@ -33,7 +33,7 @@ fi
 function get_program {
 	programs_num=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l) 
 	if [[ $programs_num -gt 10 ]]; then programs_num=10; fi
-	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme -l $programs_num -p "PathLauncher:")
+	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme -l $programs_num -p "Path Launcher:")
 	if [[ $program == $ADD_OPTION ]]; then add_program;
 	elif [[ $program == $REMOVE_OPTION ]]; then remove_program;
 	elif [[ $program != "" ]]; then get_program_path $program; 
