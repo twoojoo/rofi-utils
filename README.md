@@ -31,6 +31,6 @@
 - **rofi-chromiun-bookmarks**: automatically reads saved Chromium bookmarks and provide a menu for them
 	> Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
 
-### Theming
+#### Theming
 
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
