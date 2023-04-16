@@ -17,7 +17,7 @@ Just clone this repository and set a shortcut for each script.
 git clone git@github.com:twoojoo/rofi-scripts.git
 ```
 
-I personaly use the following shortcuts (set via i3wm config file):
+I personally use the following shortcuts (set via i3wm config file):
 
 - **Alt+Enter**: rofi-chromium-bookmarks
 - **Shifr+Enter**: rofi-window-switcher
@@ -64,6 +64,7 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 - options:
     - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file. Must have the same structures of Chromium's one (default: ***$HOME/.config/chromium/Default/Bookmarks***)
     - **-b|--alt-browser *&lt;browser&gt;***: provide an alternative browser (*its command*) to open the urls (e.g. *-b firefox, -b konqueror, -b lynx,* etc...)
+    - **-c|--post-command *&lt;cmd&gt;***: execute a command after the bookmark is opened (I personally use this option to immediately switch to the workspace that contains the Chromium window)
     - **-d|--debug**: run in debug mode
 
 - gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)

@@ -14,6 +14,7 @@ function print_error {
 
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
 browser="chromium"
+post_cmd=""
 debug=false
 
 for (( i=1; i <= "$#"; i++ )); do
@@ -32,6 +33,15 @@ for (( i=1; i <= "$#"; i++ )); do
 			browser="${!value}"
 			if [[ "$browser" == "" ]]; then 
 				print_error "a browser name must be provided along with the option -b|--alt-browser"
+				exit
+			fi
+			;;
+
+		"-c" | "--post-command")
+			value=$(($i + 1))
+			post_cmd="${!value}"
+			if [[ "$post_cmd" == "" ]]; then 
+				print_error "a command must be provided along with the option -c|--post-command"
 				exit
 			fi
 			;;
@@ -66,4 +76,6 @@ fi
 
 command="$browser $selected_bookmark_url"
 if [[ $debug == true ]]; then echo "#> running: $command"; fi
-eval $command & exit
+eval $command
+
+if [[ "$post_cmd" != "" ]]; then eval $post_cmd; fi
