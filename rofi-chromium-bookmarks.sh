@@ -9,10 +9,12 @@ function print_error {
 	rofi -e "Error: $1" 
 }
 
-## use default bookmark file or custom one
+
+## parse options
 
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
 browser="chromium"
+debug=false
 
 for (( i=1; i <= "$#"; i++ )); do
 	case ${!i} in 
@@ -33,32 +35,35 @@ for (( i=1; i <= "$#"; i++ )); do
 				exit
 			fi
 			;;
+
+		"-d" | "--debug")
+			debug=true
+			;;
 	esac
 done
-
 
 slected_bookmark=$({ 
 	echo $(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path); 
 	echo $(jq '.roots.other.children | map(.name)' $bookmarks_path); 
 } | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -w 100 -p "Chroimum Bookmarks:")
 
+if [[ $debug == true ]]; then echo "#> selected bookmark name: $slected_bookmark"; fi
 if [[ "${slected_bookmark}" == "" ]]; then exit; fi
-echo $slected_bookmark
 
+if [[ $debug == true ]]; then echo "#> looking in bookmark_bar folder"; fi
 selected_bookmark_url=$(jq -rc ".roots.bookmark_bar.children[] | select(.name==\"${slected_bookmark}\") | .url" $bookmarks_path)
 
 if [[ "$selected_bookmark_url" == "" ]]; then
-	echo "trying other"
-	echo $(jq -rc ".roots.other.children[] | select(.name==\"${slected_bookmark}\") | .url" $bookmarks_path)
+	if [[ $debug == true ]]; then echo "#> looking in other bookmarks folder"; fi
 	selected_bookmark_url=$(jq -rc ".roots.other.children[] | select(.name==\"${slected_bookmark}\") | .url" $bookmarks_path)  
-	echo $selected_bookmark_url
 fi
 
-echo $selected_bookmark_url
+if [[ $debug == true ]]; then echo "#> selected bookmark url: $selected_bookmark_url"; fi
 if [[ "$selected_bookmark_url" == "" ]]; then
 	print_error "$slected_bookmark don't have a URL"
 	exit
 fi
 
 command="$browser $selected_bookmark_url"
+if [[ $debug == true ]]; then echo "#> running: $command"; fi
 eval $command & exit
