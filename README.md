@@ -44,6 +44,8 @@
 
 		(e.g: "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode", etc...)
 
+<br>
+
 ### Theming
 
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
