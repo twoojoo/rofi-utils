@@ -37,7 +37,7 @@
 	- for some reason if the bookmark name contains more than 1 consective space character, the script won't be able to match the name with the url. Try to avoid this situation. Maybe this could be fixed in the script itself.
 	- I find very proficient to use this pattern for naming bookmarks:
 	
-		***&lt;Personal/Utils/{my-company-name}&gt; - &lt;{website-name}&gt; [- &lt;{section-name}&gt;]***
+		***Personal/Utils/&lt;my-company-name&gt; - &lt;website-name&gt; [- &lt;section-name&gt;]***
 
 		(e.g: "Personal - Github - Repositories", "Utils - Base64 - Encode"...)
 
