@@ -1,5 +1,7 @@
 ## Rofi Custom Menus
 
+#### Scripts list
+
 - **rofi-path-launcher**: by reading a json config file launch applications by poviding them custom paths as arguments
 	- default config file: ***~/.rofi-path-launcher.config.json*** (will be created at the first run if doesn't exist yet)
 	- example config (*&lt;path&gt;* is a placeholder for the selected path): 
