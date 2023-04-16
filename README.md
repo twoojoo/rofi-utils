@@ -6,6 +6,7 @@ A collection of useful custom menu based on rofi.
 - [Scripts](#Scripts)
     - [rofi-path-launcher](#rofi-path-launcher)
     - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
+    - [rofi-window-switcher](#rofi-window-switcher)
 - [Theming](#Theming)
 
 ## Installation
@@ -15,6 +16,12 @@ Just clone this repository and set a shortcut for each script.
 ```bash
 git clone git@github.com:twoojoo/rofi-scripts.git
 ```
+
+I personaly use the following shortcuts (set via i3wm config file):
+
+- **Alt+Enter**: rofi-chromium-bookmarks
+- **Shifr+Enter**: rofi-window-switcher
+- **Ctrl+Alt+Enter**: rofi-path-launcher
 
 ## Scripts
 
@@ -74,6 +81,10 @@ automatically reads saved Chromium bookmarks and provide a menu for them
     - implement a remove option (an add options is also possible but it's way more easy to create the bookmark from the chromium tab itself)
     - fix consecutive space char bug
 <br>
+
+### rofi-window-switcher
+
+Just a wrapper around the native rofi window mode to use the same theme as the other scripts.
 
 ## Theming
 
