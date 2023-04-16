@@ -7,7 +7,7 @@ theme="${script_dir}theme.rasi"
 
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
 
-slected_bookmark=$(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path | jq -r -c '.[]' | sort -r | rofi -dmenu -i -theme $theme -w 100 -p "Chroimum Bookmarks:")
+slected_bookmark=$(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -w 100 -p "Chroimum Bookmarks:")
 if [[ "${slected_bookmark}" == "" ]]; then exit; fi
 echo $slected_bookmark
 
