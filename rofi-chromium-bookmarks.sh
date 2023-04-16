@@ -10,14 +10,29 @@ function print_error {
 }
 
 ## use default bookmark file or custom one
+
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
+browser="chromium"
+
 for (( i=1; i <= "$#"; i++ )); do
-	case ${!i} in "-f" | "--bookmarks-file")
-		value=$(($i + 1))
-		echo $value
-		bookmarks_path="${!value}"
-		echo $bookmarks_path
-		shift
+	case ${!i} in 
+		"-f" | "--bookmarks-file")
+			value=$(($i + 1))
+			bookmarks_path="${!value}"
+			if [[ "$bookmarks_path" == "" ]]; then 
+				print_error "a file path must be provided along with the option -f|--bookmarks-file"
+				exit
+			fi
+			;;
+
+		"-b" | "--alt-browser")
+			value=$(($i + 1))
+			browser="${!value}"
+			if [[ "$browser" == "" ]]; then 
+				print_error "a browser name must be provided along with the option -b|--alt-browser"
+				exit
+			fi
+			;;
 	esac
 done
 
@@ -45,4 +60,5 @@ if [[ "$selected_bookmark_url" == "" ]]; then
 	exit
 fi
 
-chromium $selected_bookmark_url;
+command="$browser $selected_bookmark_url"
+eval $command & exit
