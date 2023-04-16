@@ -1,16 +1,24 @@
-## Rofi Custom Menus
+# Rofi Custom Menus
 
-### Installation
+A collection of useful custom menu based on rofi.
 
-Just clone this repository and set a shortcut for each script
+- [Installation](#installation)
+- [Scripts](#Scripts)
+    - [rofi-path-launcher](#rofi-path-launcher)
+    - [rofi-chromium-bookmarks](#rofi-chromium-bookmarks)
+- [Theming](#Theming)
+
+## Installation
+
+Just clone this repository and set a shortcut for each script.
 
 ```bash
 git clone git@github.com:twoojoo/rofi-scripts.git
 ```
 
-### Scripts list
+## Scripts
 
-#### rofi-path-launcher
+### rofi-path-launcher
 By reading a json config file launch applications by poviding them custom paths as arguments
 
 - default config file: ***~/.rofi-path-launcher.config.json*** (will be created at the first run if doesn't exist yet)
@@ -41,7 +49,7 @@ By reading a json config file launch applications by poviding them custom paths 
 ```
 <br>
 
-#### rofi-chromiun-bookmarks 
+### rofi-chromiun-bookmarks 
 
 automatically reads saved Chromium bookmarks and provide a menu for them
 
@@ -61,6 +69,6 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 
 <br>
 
-### Theming
+## Theming
 
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
