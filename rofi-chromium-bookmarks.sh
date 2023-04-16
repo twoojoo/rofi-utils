@@ -45,7 +45,7 @@ done
 slected_bookmark=$({ 
 	echo $(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path); 
 	echo $(jq '.roots.other.children | map(.name)' $bookmarks_path); 
-} | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -w 100 -p "Chroimum Bookmarks:")
+} | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -w 100 -p " Chromium Bookmarks:")
 
 if [[ $debug == true ]]; then echo "#> selected bookmark name: $slected_bookmark"; fi
 if [[ "${slected_bookmark}" == "" ]]; then exit; fi
