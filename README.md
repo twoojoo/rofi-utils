@@ -39,7 +39,7 @@
 	
 		***Personal/Utils/&lt;my-company-name&gt; - &lt;website-name&gt; [- &lt;section-name&gt;]***
 
-		(e.g: "Personal - Github - Repositories", "Utils - Base64 - Encode"...)
+		(e.g: "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode", etc...)
 
 ### Theming
 
