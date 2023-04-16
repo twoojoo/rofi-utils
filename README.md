@@ -54,7 +54,7 @@ By reading a json config file launch applications by poviding them custom paths 
 automatically reads saved Chromium bookmarks and provide a menu for them
 
 - Chromium bookmarks are stored in ***$HOME/.config/chromium/Default/Bookmarks***
-- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file &lt;path&gt;**
+- To use a custom bookmarks file run the script with this option: **-f|--bookmarks-file *&lt;path&gt;***
 - gets bookmarks both from **bookmark_bar** and **other** bookmark folders (custom folders not yet implemented)
 - **bookmark naming**:
 	- be sure that bookamark names are **unique** among all bookmarks folders
