@@ -95,7 +95,7 @@ function remove_path_from_program {
 
 	lines_num=$(echo $config | jq -r -c $pattern | wc -l)
 	if [[ $lines_num -gt 10 ]]; then lines_num=10; fi
-	path=$(echo $config | jq -r -c $pattern | rofi -dmenu -i -theme $theme -l $lines_num -p "$program (remove path)")
+	path=$(echo $config | jq -r -c $pattern | sort | rofi -dmenu -i -theme $theme -l $lines_num -p "$program (remove path)")
 
 	if [[ "$path" != "" ]]; then
 		pattern=".${program}.paths - [\"${path}\"]"
