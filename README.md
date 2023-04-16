@@ -63,7 +63,7 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 	
 		***Personal/Utils/&lt;my-company-name&gt; - &lt;website-name&gt; [- &lt;section-name&gt;]***
 
-		(e.g. "Personal - Gmail", "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode", etc...)
+		(e.g. *"Personal - Gmail", "Personal - Github", "Personal - Github - Repositories", "Utils - Base64 - Encode", "Utils - Base64 - Decode"*, etc...)
 
 		This helps a lot in keeping them tidy in the rofi menu.
 
