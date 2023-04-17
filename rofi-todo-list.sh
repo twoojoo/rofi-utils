@@ -134,7 +134,7 @@ function delete_completed_task {
 
 function edit_task {
 	original_task=$1
-	new_task="$(rofi -dmenu -theme $theme -l 0 -p " Tasks (edit):" -run $original_task & xdotool type 'abcdefg')" 
+	new_task="$(rofi -dmenu -theme $theme -l 0 -p " Tasks (edit):" -run $original_task & (sleep 0.1 && xdotool type "$original_task"))" 
 
 
 	if [ "$new_task" != "" ] && [ "$original_task" != "" ]; then
