@@ -107,7 +107,7 @@ function complete_task {
 }
 
 function delete_task {
-	confirm=$(ask_for_confirmation)
+	confirm=$(ask_for_confirmation "$1")
 
 	if [[ ${confirm,,} == "yes" ]]; then 
 		pattern=".pending - [\"${1}\"]"
@@ -121,7 +121,7 @@ function delete_task {
 }
 
 function delete_completed_task {
-	confirm=$(ask_for_confirmation)
+	confirm=$(ask_for_confirmation "$1")
 
 	if [[ ${confirm,,} == "yes" ]]; then 
 		pattern=".completed - [\"${1}\"]"
@@ -177,7 +177,7 @@ function restore_completed_task {
 }
 
 function ask_for_confirmation {
-	echo $(rofi -dmenu -theme $theme -p "Confirm (yes/no)" -l 0)
+	echo $(rofi -dmenu -theme $theme -p "Confirm ($1) ? [yes/no]" -l 0)
 }
 
 select_pending_task
