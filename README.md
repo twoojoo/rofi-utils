@@ -2,6 +2,7 @@
 
 A collection of useful custom menu based on rofi.
 
+- [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Scripts](#Scripts)
     - [rofi-path-launcher](#rofi-path-launcher)
