@@ -92,6 +92,8 @@ Automatically reads saved Chromium bookmarks and provide a menu for them
 A basyc, yet effective, to do list completely handled by a set of rofi menus.
 
 - default config file: ***$HOME/.rofi-todo-list.config.json***
+- **todo**:
+    - add priorities
 <br>
 
 ### rofi-window-switcher
