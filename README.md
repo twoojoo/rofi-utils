@@ -1,4 +1,4 @@
-# Rofi Custom Menus
+# Rofi Custom Utils
 
 A collection of useful custom menus based on [rofi](https://github.com/davatorium/rofi) fully written in bash syntax.
 
