@@ -11,7 +11,7 @@ A collection of useful custom menu based on rofi.
 
 ## Dependencies
 
-- **nerd-fonts**
+- **nerd-fonts** must be installed in your system
 
 ## Installation
 
