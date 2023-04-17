@@ -12,7 +12,7 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
 
 ## Dependencies
 
-- **nerd-fonts** (all menus)
+- **nerd-fonts** (all utils)
 - **xdotool** (rofi-todo-list)
 
 ## Installation
