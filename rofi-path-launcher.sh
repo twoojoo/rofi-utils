@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ADD_OPTION="+"
-REMOVE_OPTION="-"
+ADD_OPTION="◯ add"
+REMOVE_OPTION="◯ remove"
 
 script_path=$(realpath "$0")
 script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
