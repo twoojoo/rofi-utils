@@ -1,5 +1,4 @@
 # Rofi Custom Utils
-
 A collection of useful custom utilities based on [rofi](https://github.com/davatorium/rofi) fully written in bash syntax.
 
 - [Dependencies](#dependencies)
@@ -17,7 +16,6 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
 - **xdotool** (rofi-todo-list)
 
 ## Installation
-
 Just clone this repository and set a shortcut for each script.
 
 ```bash
@@ -66,8 +64,7 @@ By reading a json config file launch applications by poviding them saved custom 
 <br>
 
 ### rofi-chromiun-bookmarks 
-
-automatically reads saved Chromium bookmarks and provide a menu for them
+Automatically reads saved Chromium bookmarks and provide a menu for them
 
 - options:
     - **-f|--bookmarks-file *&lt;path&gt;***: use a different bookmarks file. Must have the same structures of Chromium's one (default: ***$HOME/.config/chromium/Default/Bookmarks***)
@@ -92,17 +89,14 @@ automatically reads saved Chromium bookmarks and provide a menu for them
 <br>
 
 ### rofi-todo-list 
-
 A basyc, yet effective, to do list completely handled by a set of rofi menus.
 
 - default config file: ***$HOME/.rofi-todo-list.config.json***
 <br>
 
 ### rofi-window-switcher
-
 Just a wrapper around the native rofi window mode to use the same theme as the other scripts.
 
 ## Theming
-
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
 
