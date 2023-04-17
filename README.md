@@ -105,3 +105,4 @@ Just a wrapper around the native rofi window mode to use the same theme as the o
 ## Theming
 
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
+
