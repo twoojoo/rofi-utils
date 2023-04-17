@@ -6,6 +6,8 @@ script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
 
 config_path="$HOME/.rofi-todo-list.config.json"
+touch "$HOME/.rofi-todo-list.config.backup.json"
+cat $config_path > "$HOME/.rofi-todo-list.config.backup.json"
 
 function select_pending_task {
 	lines=$({ jq ".pending[]" $config_path; echo "◯ add task";  echo "◯ completed list"; } | wc -l)
@@ -147,8 +149,8 @@ function edit_task {
 		echo $new_tasks > $config_path
 
 		pattern=".pending + [\"${new_task}\"]"
-		new_tasks=$(jq "$pattern" $config_path)
 
+		new_tasks=$(jq "$pattern" $config_path)
 		pattern=".pending = ${new_tasks}"
 		new_tasks=$(jq "$pattern" $config_path)
 
