@@ -9,6 +9,10 @@ A collection of useful custom menu based on rofi.
     - [rofi-window-switcher](#rofi-window-switcher)
 - [Theming](#Theming)
 
+## Dependencies
+
+- **nerd-fonts**
+
 ## Installation
 
 Just clone this repository and set a shortcut for each script.
