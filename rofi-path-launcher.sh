@@ -80,8 +80,8 @@ function add_path_to_program {
 	if [[ "$path" == "" ]]
 		then get_program_path $program
 		else
-			abs_path=`readlink -f "$path"`
-			if [ -d $abs_path ] || [ -f $abs_path ]; then
+			abs_path=${path/"~/"/"${HOME}/"}
+			if [[ -d $abs_path ]] || [[ -f $abs_path ]]; then
 				pattern=".${program}.paths + [\"${path}\"]"
 				new_paths=$(jq "$pattern" $config_path)
 
