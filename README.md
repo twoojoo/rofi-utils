@@ -3,7 +3,7 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
-- [Scripts](#Scripts)
+- [Utilities](#utilities)
     - [rofi-path-launcher](#rofi-path-launcher)
     - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
     - [rofi-window-switcher](#rofi-window-switcher)
@@ -29,7 +29,7 @@ I personally use the following shortcuts (set via i3wm config file):
 - **Ctrl+Alt+Enter**: rofi-path-launcher
 - **Ctrl+Shift+Enter**: rofi-todo-list
 
-## Scripts
+## Utilities
 
 ### rofi-path-launcher
 By reading a json config file launch applications by poviding them saved custom paths as arguments
@@ -89,7 +89,7 @@ Automatically reads saved Chromium bookmarks and provide a menu for them
 <br>
 
 ### rofi-todo-list 
-A basyc, yet effective, to do list completely handled by a set of rofi menus.
+A basyc, yet effective, to-do list completely handled by a set of rofi menus.
 
 - default config file: ***$HOME/.rofi-todo-list.config.json***
 - **todo**:
