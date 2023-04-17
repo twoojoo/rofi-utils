@@ -91,6 +91,13 @@ automatically reads saved Chromium bookmarks and provide a menu for them
     - fix consecutive space char bug
 <br>
 
+### rofi-todo-list 
+
+A basyc, yet effective, to do list completely handled by a set of rofi menus.
+
+- default config file: ***$HOME/.rofi-todo-list.config.json***
+<br>
+
 ### rofi-window-switcher
 
 Just a wrapper around the native rofi window mode to use the same theme as the other scripts.
