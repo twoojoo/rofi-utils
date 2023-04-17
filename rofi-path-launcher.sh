@@ -146,9 +146,11 @@ function remove_program {
 	if [[ "$program" != "" ]]; then 
 		confirm=$(ask_for_confirmation "$program")
 		if [[ ${confirm,,} == "yes" ]]; then 
-			pattern="del(.$program)"
+			pattern="del(.\"$program\")"
+			echo $pattern
 			new_config=$(jq "$pattern" $config_path)
-			
+
+			echo $new_config
 			echo $new_config > $config_path
 			config=$(cat $config_path)
 		fi
