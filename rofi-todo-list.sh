@@ -8,9 +8,9 @@ theme="${script_dir}theme.rasi"
 config_path="$HOME/.rofi-todo-list.config.json"
 
 function select_pending_task {
-	lines=$({ jq ".pending[]" $config_path; echo "◯ add task"; echo "◯ completed list"; } | wc -l)
+	lines=$({ jq ".pending[]" $config_path; echo "◯ add task";  echo "◯ completed list"; } | wc -l)
 	if [[ $lines -gt 10 ]]; then lines=10; fi
-	task=$({ jq -rc ".pending[]" $config_path; echo "◯ add task"; echo "◯ completed list"; } | rofi -dmenu -l $lines -theme $theme -p " Tasks (pending):")
+	task=$({ jq -rc ".pending[]" $config_path; echo "◯ completed list"; echo "◯ add task"; } | rofi -dmenu -l $lines -theme $theme -p " Tasks (pending):")
 
 	if [[ "$task" == "" ]]; then exit; 
 	elif [[ "$task" == "◯ add task" ]]; then add_new_task
@@ -24,16 +24,38 @@ function select_completed_task {
 	if [[ $lines -gt 10 ]]; then lines=10; fi
 	task=$({ jq -rc ".completed[]" $config_path; echo "◯ prune completed tasks";  } | rofi -dmenu -l $lines -theme $theme -p " Tasks (completed):")
  
-	if [[ "$task" == "◯ prune completed tasks" ]]; then prune_completed_tasks; fi
+	if [[ "$task" == "◯ prune completed tasks" ]]; 
+		then prune_completed_tasks; 
+		else select_completed_task_action "$task"
+	fi
+
 	select_pending_task; 
 }
 
+function select_completed_task_action {
+	action=$({ echo "◯ restore"; echo "◯ delete"; } | 
+		rofi -dmenu -theme $theme -l 2 -p " Tasks ($1):")
+
+	if [[ "$action" != "" ]]; then
+		if [[ "$action" == "◯ restore" ]]; then restore_completed_task "$1"; fi
+		if [[ "$action" == "◯ delete" ]]; then delete_completed_task "$1"; fi
+	fi
+
+	completed_num=$(jq -rc ".completed[]" $config_path | wc -l)
+
+	if [[ $completed -gt 0 ]];
+		then select_completed_task; 
+		else select_pending_task
+	fi
+} 
+
 function select_pending_task_action {
-	action=$(echo "◯ complete
-◯ delete" | rofi -dmenu -theme $theme -l 2 -p " Tasks ($1):")
+	action=$({ echo "◯ complete"; echo "◯ edit"; echo "◯ delete"; } | 
+		rofi -dmenu -theme $theme -l 3 -p " Tasks ($1):")
 
 	if [[ "$action" != "" ]]; then
 		if [[ "$action" == "◯ complete" ]]; then complete_task "$1"; fi
+		if [[ "$action" == "◯ edit" ]]; then edit_task "$1"; fi
 		if [[ "$action" == "◯ delete" ]]; then delete_task "$1"; fi
 	fi
 
@@ -83,13 +105,78 @@ function complete_task {
 }
 
 function delete_task {
-	pattern=".pending - [\"${1}\"]"
+	confirm=$(ask_for_confirmation)
+
+	if [[ ${confirm,,} == "yes" ]]; then 
+		pattern=".pending - [\"${1}\"]"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		pattern=".pending = ${new_tasks}"
+		new_tasks=$(jq "$pattern" $config_path)
+		
+		echo $new_tasks > $config_path
+	fi
+}
+
+function delete_completed_task {
+	confirm=$(ask_for_confirmation)
+
+	if [[ ${confirm,,} == "yes" ]]; then 
+		pattern=".completed - [\"${1}\"]"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		pattern=".completed = ${new_tasks}"
+		new_tasks=$(jq "$pattern" $config_path)
+		
+		echo $new_tasks > $config_path
+	fi
+}
+
+function edit_task {
+	original_task=$1
+	new_task="$(rofi -dmenu -theme $theme -l 0 -p " Tasks (edit):" -run $original_task & xdotool type 'abcdefg')" 
+
+
+	if [ "$new_task" != "" ] && [ "$original_task" != "" ]; then
+		pattern=".pending - [\"${original_task}\"]"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		pattern=".pending = ${new_tasks}"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		echo $new_tasks > $config_path
+
+		pattern=".pending + [\"${new_task}\"]"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		pattern=".pending = ${new_tasks}"
+		new_tasks=$(jq "$pattern" $config_path)
+
+		echo $new_tasks > $config_path
+	fi
+}
+
+function restore_completed_task {
+	pattern=".completed - [\"${1}\"]"
+	new_tasks=$(jq "$pattern" $config_path)
+
+	pattern=".completed = ${new_tasks}"
+	new_tasks=$(jq "$pattern" $config_path)
+
+	echo $new_tasks > $config_path
+
+	pattern=".pending + [\"${1}\"]"
 	new_tasks=$(jq "$pattern" $config_path)
 
 	pattern=".pending = ${new_tasks}"
 	new_tasks=$(jq "$pattern" $config_path)
-	
+
 	echo $new_tasks > $config_path
 }
 
+function ask_for_confirmation {
+	echo $(rofi -dmenu -theme $theme -p "Confirm (yes/no)" -l 0)
+}
+
 select_pending_task
+
