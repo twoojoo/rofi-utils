@@ -21,7 +21,7 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
 Just clone this repository and set a shortcut for each script.
 
 ```bash
-git clone git@github.com:twoojoo/rofi-scripts.git
+git clone git@github.com:twoojoo/rofi-utils.git
 ```
 
 I personally use the following shortcuts (set via i3wm config file):
