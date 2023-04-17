@@ -1,6 +1,6 @@
 # Rofi Custom Menus
 
-A collection of useful custom menu based on rofi.
+A collection of useful custom menus based on [rofi](https://github.com/davatorium/rofi) fully written in bash syntax.
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
@@ -8,11 +8,13 @@ A collection of useful custom menu based on rofi.
     - [rofi-path-launcher](#rofi-path-launcher)
     - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
     - [rofi-window-switcher](#rofi-window-switcher)
+    - [rofi-todo-list](#rofi-window-switcher)
 - [Theming](#Theming)
 
 ## Dependencies
 
-- **nerd-fonts** must be installed in your system
+- **nerd-fonts** (all menus)
+- **xdotool** (rofi-todo-list)
 
 ## Installation
 
@@ -27,6 +29,7 @@ I personally use the following shortcuts (set via i3wm config file):
 - **Alt+Enter**: rofi-chromium-bookmarks
 - **Shifr+Enter**: rofi-window-switcher
 - **Ctrl+Alt+Enter**: rofi-path-launcher
+- **Ctrl+Shift+Enter**: rofi-todo-list
 
 ## Scripts
 
