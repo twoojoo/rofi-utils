@@ -9,20 +9,21 @@ script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
 
 ## get config from options
-config=""
+config_path=""
 for (( i=1; i <= "$#"; i++ )); do
 	case ${!i} in "-c" | "--config")
 		value=$(($i + 1))
 		echo $value
-		config="${!value}"
-		echo $config
+		config_path="${!value}"
+		echo $config_path
 		shift
 	esac
 done
 
 ## if no config in options, use default 
-if [[ "$config" == "" ]]; then 
+if [[ "$config_path" == "" ]]; then 
 	config_path="${HOME}/.rofi-path-launcher.config.json"
+
 	if [[ ! -f $config_path ]]; then 
 		touch $config_path
 		echo "{}" > $config_path
@@ -30,12 +31,10 @@ if [[ "$config" == "" ]]; then
 	
 	config=$(cat $config_path)
 
-	if [[ "$config" == "" ]]; then
-		echo "{}" > $config_path
-	fi
-
-	config=$(cat $config_path)
+	if [[ "$config" == "" ]]; then echo "{}" > $config_path; fi
 fi
+	
+config=$(cat $config_path)
 
 function get_program {
 	programs_num=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l) 
