@@ -9,4 +9,4 @@ script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
 script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
 
-rofi -show window -theme $theme
+rofi -show window -theme $theme -display-window " Window:"
