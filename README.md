@@ -99,6 +99,9 @@ A basyc, yet effective, to-do list completely handled by a set of rofi menus.
 ### rofi-window-switcher
 Just a wrapper around the native rofi window mode to use the same theme as the other scripts.
 
+### rofi-system-menu
+A basic menu to **poweroff**, **reboot** or **logout**.
+
 ## Theming
 All the scripts will use the ***theme.rasi*** file that is placed in the same directory.
 
