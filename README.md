@@ -8,6 +8,7 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
     - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
     - [rofi-window-switcher](#rofi-window-switcher)
     - [rofi-todo-list](#rofi-window-switcher)
+    - [rofi-system-menu](#rofi-system-menu)
 - [Theming](#Theming)
 
 ## Dependencies
@@ -28,6 +29,7 @@ I personally use the following shortcuts (set via i3wm config file):
 - **Shifr+Enter**: rofi-window-switcher
 - **Ctrl+Alt+Enter**: rofi-path-launcher
 - **Ctrl+Shift+Enter**: rofi-todo-list
+- **Ctrl+Shift+e**: rofi-system-menu
 
 ## Utilities
 
@@ -98,6 +100,7 @@ A basyc, yet effective, to-do list completely handled by a set of rofi menus.
 
 ### rofi-window-switcher
 Just a wrapper around the native rofi window mode to use the same theme as the other scripts.
+<br>
 
 ### rofi-system-menu
 A basic menu to **poweroff**, **reboot** or **logout**.
