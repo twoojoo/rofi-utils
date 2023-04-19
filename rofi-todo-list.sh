@@ -26,12 +26,16 @@ function select_completed_task {
 	if [[ $lines -gt 10 ]]; then lines=10; fi
 	task=$({ jq -rc ".completed[]" $config_path; echo "◯ prune completed tasks";  } | rofi -dmenu -l $lines -theme $theme -p " Tasks (completed):")
  
-	if [[ "$task" == "◯ prune completed tasks" ]]; 
-		then prune_completed_tasks; 
-		else select_completed_task_action "$task"
-	fi
+ 	if [[ "$task" != "" ]]; 
+ 		then
+			if [[ "$task" == "◯ prune completed tasks" ]]; 
+				then prune_completed_tasks; 
+				else select_completed_task_action "$task"
+			fi
+			select_pending_task; 
+		else select_pending_task; 
+ 	fi
 
-	select_pending_task; 
 }
 
 function select_completed_task_action {
