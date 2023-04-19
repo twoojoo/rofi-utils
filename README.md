@@ -1,5 +1,5 @@
 # Rofi Custom Utils
-A collection of useful custom utilities based on [rofi](https://github.com/davatorium/rofi) fully written in bash syntax.
+A collection of useful custom utilities based on [rofi](https://github.com/davatorium/rofi), fully written in bash syntax.
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
