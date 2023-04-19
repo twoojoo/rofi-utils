@@ -12,7 +12,7 @@ cat $config_path > "$HOME/.rofi-todo-list.config.backup.json"
 function select_pending_task {
 	lines=$({ jq ".pending[]" $config_path; echo "◯ add task";  echo "◯ completed list"; } | wc -l)
 	if [[ $lines -gt 10 ]]; then lines=10; fi
-	task=$({ jq -rc ".pending[]" $config_path; echo "◯ completed list"; echo "◯ add task"; } | rofi -dmenu -l $lines -theme $theme -p " Tasks (pending):")
+	task=$({ jq -rc ".pending[]" $config_path | sort; echo "◯ completed list"; echo "◯ add task"; } | rofi -dmenu -l $lines -theme $theme -p " Tasks (pending):")
 
 	if [[ "$task" == "" ]]; then exit; 
 	elif [[ "$task" == "◯ add task" ]]; then add_new_task
@@ -24,7 +24,7 @@ function select_pending_task {
 function select_completed_task {
 	lines=$({ jq ".completed[]" $config_path; echo "◯ prune completed tasks"; } | wc -l)
 	if [[ $lines -gt 10 ]]; then lines=10; fi
-	task=$({ jq -rc ".completed[]" $config_path; echo "◯ prune completed tasks";  } | rofi -dmenu -l $lines -theme $theme -p " Tasks (completed):")
+	task=$({ jq -rc ".completed[]" $config_path | sort; echo "◯ prune completed tasks";  } | rofi -dmenu -l $lines -theme $theme -p " Tasks (completed):")
  
  	if [[ "$task" != "" ]]; 
  		then
