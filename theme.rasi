@@ -11,7 +11,7 @@ window {
 	//border:							2px;
 	border-color:					@ac;
     border-radius:                  0px;
-	//width:							500px;
+	width:							750px;
     location:                       center;
 }
 

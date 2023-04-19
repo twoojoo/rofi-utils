@@ -7,6 +7,7 @@ script_path=$(realpath "$0")
 script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
 script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
+theme_narrow="${script_dir}theme-narrow.rasi"
 
 ## get config from options
 config_path=""
@@ -39,7 +40,7 @@ config=$(cat $config_path)
 function get_program {
 	programs_num=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l) 
 	if [[ $programs_num -gt 10 ]]; then programs_num=10; fi
-	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme -l $programs_num -p " Path Launcher:")
+	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme_narrow -l $programs_num -p " Path Launcher:")
 	if [[ $program == $ADD_OPTION ]]; then add_program;
 	elif [[ $program == $REMOVE_OPTION ]]; then remove_program;
 	elif [[ $program != "" ]]; then get_program_path $program; 
