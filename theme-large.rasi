@@ -1,0 +1,5 @@
+@theme "theme"
+
+window {
+	width:	1000px;
+}
