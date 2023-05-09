@@ -17,4 +17,5 @@ if [[ "$choice" == "" ]];
 	then exit; 
 fi
 
-eval "alacritty -e tmuxinator start $choice &"
+echo $choice
+eval "alacritty -e tmuxinator start '$choice' &"
