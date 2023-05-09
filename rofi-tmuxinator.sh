@@ -11,6 +11,10 @@ function print_error {
 
 tmuxinator_folder="$HOME/.tmuxinator"
 
-choiche=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -theme $theme -w 100 -p "Tmuxinator:")
+choice=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -theme $theme -w 100 -p "Tmuxinator:")
 
-eval "alacritty -e tmuxinator start $choiche"
+if [[ "$choice" == "" ]]; 
+	then exit; 
+fi
+
+eval "alacritty -e tmuxinator start $choice &"
