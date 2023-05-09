@@ -31,6 +31,7 @@ I personally use the following shortcuts (set via i3wm config file):
 - **Ctrl+Alt+Enter**: rofi-path-launcher
 - **Ctrl+Shift+Enter**: rofi-todo-list
 - **Ctrl+Shift+e**: rofi-system-menu
+- **Ctrl+Alt+x**: rofi-tmuxinator
 
 ## Utilities
 

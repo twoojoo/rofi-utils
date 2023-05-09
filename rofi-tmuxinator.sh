@@ -11,7 +11,7 @@ function print_error {
 
 tmuxinator_folder="$HOME/.tmuxinator"
 
-choice=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -theme $theme -w 100 -p " tmuxinator:")
+choice=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -theme $theme -w 100 -p "[] tmux:")
 
 if [[ "$choice" == "" ]]; 
 	then exit; 

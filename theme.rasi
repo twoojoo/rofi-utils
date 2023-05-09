@@ -20,7 +20,7 @@ prompt {
 	padding: 						0px;
 	background-color: 				@al;
 	text-color: 					@ac;
-	font:							"Iosevka Nerd Font 14";
+	font:							"Iosevka Nerd Font 12";
 }
 
 entry {
