@@ -1,0 +1,9 @@
+@theme "theme"
+
+window {
+	width:	500px;
+}
+
+listview {
+	lines:	5;
+}
