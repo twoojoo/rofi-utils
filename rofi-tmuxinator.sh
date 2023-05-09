@@ -11,7 +11,10 @@ function print_error {
 
 tmuxinator_folder="$HOME/.tmuxinator"
 
-choice=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -theme $theme -w 100 -p "[] tmux:")
+lines=$(ls $tmuxinator_folder | wc -l)
+if [[ $lines -gt 10 ]]; then lines=10; fi
+
+choice=$(ls $tmuxinator_folder | cut -d "." -f 1 | sort | rofi -dmenu -i -l $lines -theme $theme -w 100 -p "[] tmux:")
 
 if [[ "$choice" == "" ]]; 
 	then exit; 
