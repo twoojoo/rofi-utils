@@ -7,6 +7,7 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
     - [rofi-path-launcher](#rofi-path-launcher)
     - [rofi-chromium-bookmarks](#rofi-chromiun-bookmarks)
     - [rofi-window-switcher](#rofi-window-switcher)
+    - [rofi-tmuxinator](#rofi-tmuxinator)
     - [rofi-todo-list](#rofi-window-switcher)
     - [rofi-system-menu](#rofi-system-menu)
 - [Theming](#Theming)
@@ -88,6 +89,10 @@ Automatically reads saved Chromium bookmarks and provide a menu for them
 - **todo**: 
     - implement a remove option (an add options is also possible but it's way more easy to create the bookmark from the chromium tab itself)
     - fix consecutive space char bug
+<br>
+
+### rofi-tmuxinator
+Just picks the [tmuxinator](https://github.com/tmuxinator/tmuxinator) coniguration files from ***~/.tmxuinator*** folder, and allow to select one of them (for now requires [alacritty](https://github.com/alacritty/alacritty) to be installed).
 <br>
 
 ### rofi-todo-list 
