@@ -42,6 +42,7 @@ inputbar {
 	border-color:					@ac;
     margin:                         0px;
     padding:                        10px;
+    spacing:                        -2px;
 }
 
 listview {
@@ -49,7 +50,7 @@ listview {
     padding:                        0px;
     columns:                        1;
     lines:                          10;
-    spacing:                        0px;
+    spacing:                        -2px;
     cycle:                          true;
     dynamic:                        true;
     layout:                         vertical;
