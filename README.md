@@ -93,7 +93,7 @@ Automatically reads saved Chromium bookmarks and provide a menu for them
 <br>
 
 ### rofi-tmuxinator
-Just picks the [tmuxinator](https://github.com/tmuxinator/tmuxinator) coniguration files from ***~/.tmxuinator*** folder, and allow to select one of them (for now requires [alacritty](https://github.com/alacritty/alacritty) to be installed).
+Just picks the [tmuxinator](https://github.com/tmuxinator/tmuxinator) coniguration files from ***~/.tmuxinator*** folder, and allow to select one of them (for now requires [alacritty](https://github.com/alacritty/alacritty) to be installed).
 
 <br>
 
