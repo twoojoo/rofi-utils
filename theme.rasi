@@ -37,7 +37,7 @@ inputbar {
     background-color:               @bga;
     text-color:                     @fg;
     expand:                         false;
-	border:							-3px 0px -3px 0px;
+	border:							-1px 0px -1px 0px;
     border-radius:                  0px;
 	border-color:					@ac;
     margin:                         0px;
@@ -87,7 +87,7 @@ element-text {
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
-    margin:                         -3px 2px -3px 2px;
+    margin:                         -1px 2px -1px 2px;
 }
 
 element selected {
