@@ -9,7 +9,6 @@ function print_error {
 	rofi -e "Error: $1" 
 }
 
-
 ## parse options
 
 bookmarks_path="$HOME/.config/chromium/Default/Bookmarks"
