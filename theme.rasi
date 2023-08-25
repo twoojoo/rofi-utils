@@ -1,99 +1,90 @@
 configuration {
-	font:							"Iosevka Nerd Font 11";
+	font:				"Iosevka Nerd Font 10.3";
+	//font:				"DejaVu Sans Mono 9.6";
 }
 
 @import "theme-colors.rasi"
 
 window {
-    transparency:                   "real";
-    background-color:               @bg;
-    text-color:                     @fg;
-	//border:							2px;
-	border-color:					@ac;
-    border-radius:                  0px;
-	width:							750px;
-    location:                       center;
+    	transparency:                   "real";
+    	background-color:               @al;
+    	text-color:                     @fg;
+	width:				40%;
+	location:                      	center; 
+	border:				3px;
+	border-color:			@al;
+	//y-offset:			-23px;
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						0px;
-	background-color: 				@al;
-	text-color: 					@ac;
-	font:							"Iosevka Nerd Font 12";
+    	enabled: 			true;
+	padding: 			4px;
+	background-color: 		@al;
+	text-color: 			@fg;
 }
 
 entry {
-    background-color:               @al;
-    text-color:                     @fg;
-    expand:                         true;
-    horizontal-align:               0;
-    padding:                        0px 0px 0px 10px;
-    blink:                          true;
+    	background-color:               @al;
+    	text-color:                     @fg;
+    	expand:                         true;
+    	horizontal-align:               0;
+    	padding:                        4px 0px 0px0px;
+    	blink:                          true;
 }
 
 inputbar {
-	children: 						[ prompt, entry ];
-    background-color:               @bga;
-    text-color:                     @fg;
-    expand:                         false;
-	border:							-1px 0px -1px 0px;
-    border-radius:                  0px;
-	border-color:					@ac;
-    margin:                         0px;
-    padding:                        10px;
-    spacing:                        -2px;
+	children:			[ prompt, entry ];
+    	background-color:               @al;
+    	text-color:                     @fg;
+    	expand:                         false;
+    	//spacing:                        -2px;
 }
 
 listview {
-    background-color:               @al;
-    padding:                        0px;
-    columns:                        1;
-    lines:                          10;
-    spacing:                        -2px;
-    cycle:                          true;
-    dynamic:                        true;
-    layout:                         vertical;
+	//reverse:			true;
+	dynamic:			true;
+    	background-color:               @al;
+    	padding:                        0px;
+    	columns:                        1;
+    	cycle:                          false;
+    	layout:                         vertical;
 }
 
 mainbox {
-    background-color:               @al;
-	border:							0px;
-    border-radius:                  0px;
-	border-color:					@ac;
-    children:                       [ inputbar, listview ];
-    spacing:                       	0px;
-    padding:                        0px;
+    	background-color:               @al;
+	border:				0px;
+    	border-radius:                  0px;
+	border-color:			@ac;
+    	//children:                       [ listview, inputbar ];
+    	childred:			[ inputbar, listview ];
+	spacing:                       	0px;
+    	padding:                        0px;
 }
 
 element {
-    background-color:               @al;
-    text-color:                     @fg;
-    orientation:                    horizontal;
-    border-radius:                  0px;
-    padding:                        6px;
+    	background-color:               @bg;
+    	text-color:                     @fg;
+    	orientation:                    horizontal;
+    	border-radius:                  0px;
+	padding:                        1px 5px 1px 5px;
 }
 
 element-icon {
-    background-color:               transparent;
-    text-color:               		inherit;
-    size:                           24px;
-    border:                         0px;
+    	background-color:               transparent;
+    	text-color:               	inherit;
+    	size:                           24px;
+    	border:                         0px;
 }
 
 element-text {
-    background-color:               transparent;
-    text-color:               		inherit;
-    expand:                         true;
-    horizontal-align:               0;
-    vertical-align:                 0.5;
-    margin:                         -1px 2px -1px 2px;
+   	background-color:               transparent;
+    	text-color:               	inherit;
+   	expand:                         true;
+    	horizontal-align:               0;
+   	vertical-align:                 0.5;
 }
 
 element selected {
-    background-color:               @ac;
-    text-color:                     @bg;
-	border:							0px 0px 0px 2px;
-    border-radius:                  0px;
-    border-color:                  	@ac;
+    	background-color:               @ac;
+    	text-color:                     @fg;
 }

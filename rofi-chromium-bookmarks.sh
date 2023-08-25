@@ -1,4 +1,4 @@
-#1/bin/bash
+#!/bin/bash
 
 script_path=$(realpath "$0")
 script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
@@ -51,28 +51,34 @@ for (( i=1; i <= "$#"; i++ )); do
 	esac
 done
 
+# run rofi
 slected_bookmark=$({ 
 	echo $(jq '.roots.bookmark_bar.children | map(.name)' $bookmarks_path); 
 	echo $(jq '.roots.other.children | map(.name)' $bookmarks_path); 
-} | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -w 100 -p " Chromium Bookmarks:")
+} | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -l 10 -p "bookmarks:" -no-fixed-num-lines)
 
+# exit if nothing selected (e.g. escape pressed)
 if [[ $debug == true ]]; then echo "#> selected bookmark name: $slected_bookmark"; fi
 if [[ "${slected_bookmark}" == "" ]]; then exit; fi
 
+# search bookmark match by name in bookmark bar folder
 if [[ $debug == true ]]; then echo "#> looking in bookmark_bar folder"; fi
 selected_bookmark_url=$(jq -rc ".roots.bookmark_bar.children[] | select(.name==\"${slected_bookmark}\") | .url" $bookmarks_path)
 
+# search in other bookmarks folder
 if [[ "$selected_bookmark_url" == "" ]]; then
 	if [[ $debug == true ]]; then echo "#> looking in other bookmarks folder"; fi
 	selected_bookmark_url=$(jq -rc ".roots.other.children[] | select(.name==\"${slected_bookmark}\") | .url" $bookmarks_path)  
 fi
 
+# exit if no bookmark found for that name
 if [[ $debug == true ]]; then echo "#> selected bookmark url: $selected_bookmark_url"; fi
 if [[ "$selected_bookmark_url" == "" ]]; then
 	print_error "$slected_bookmark don't have a URL"
 	exit
 fi
 
+# open browser tab with selcted bookmark
 command="$browser $selected_bookmark_url"
 if [[ $debug == true ]]; then echo "#> running: $command"; fi
 eval $command

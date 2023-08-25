@@ -28,8 +28,8 @@ function select_completed_task {
  
  	if [[ "$task" != "" ]]; 
  		then
-			if [[ "$task" == "◯ prune completed tasks" ]]; 
-				then prune_completed_tasks; 
+			if [[ "$task" == "◯ prune completed tasks" ]];
+				then prune_completed_tasks;
 				else select_completed_task_action "$task"
 			fi
 			select_pending_task; 

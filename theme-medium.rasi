@@ -1,5 +1,5 @@
 @theme "theme"
 
 window {
-	width:	500px;
+	width:	20%;
 }
