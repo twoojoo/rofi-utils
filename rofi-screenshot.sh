@@ -8,8 +8,7 @@ theme="${script_dir}theme-narrow.rasi"
 SCREEN="  ◯   screen"
 SELECTION="  ◯   selection"
 SCREEN_CLIPBOARD_ONLY="  ◯   screen (clipboard only)"
-SELECTION_CLIPBOARD_ONLY="  ◯   selection (clipboard only)" 
-# LOGOUT="  ◯   logout"
+SELECTION_CLIPBOARD_ONLY="  ◯   selection (clipboard only)"
 
 cmd=$({ 
 	echo "$SCREEN"; 

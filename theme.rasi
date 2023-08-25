@@ -6,9 +6,9 @@ configuration {
 @import "theme-colors.rasi"
 
 window {
-    	transparency:                   "real";
-    	background-color:               @al;
-    	text-color:                     @fg;
+	transparency:                   "real";
+	background-color:               @al;
+	text-color:                     @fg;
 	width:				40%;
 	location:                      	center; 
 	border:				3px;
@@ -17,7 +17,7 @@ window {
 }
 
 prompt {
-    	enabled: 			true;
+    enabled: 			true;
 	padding: 			4px;
 	background-color: 		@al;
 	text-color: 			@fg;
@@ -42,11 +42,11 @@ inputbar {
 
 listview {
 	//reverse:			true;
-	dynamic:			true;
+		dynamic:			false;
     	background-color:               @al;
     	padding:                        0px;
     	columns:                        1;
-    	cycle:                          false;
+    	cycle:                          true;
     	layout:                         vertical;
 }
 
