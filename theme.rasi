@@ -6,8 +6,8 @@ configuration {
 @import "theme-colors.rasi"
 
 window {
-	transparency:                   "real";
-	background-color:               @al;
+	transparency:       "real";
+	background-color:   @al;
 	text-color:                     @fg;
 	width:				40%;
 	location:                      	center; 
