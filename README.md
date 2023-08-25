@@ -27,11 +27,12 @@ git clone git@github.com:twoojoo/rofi-utils.git
 I personally use the following shortcuts (set via i3wm config file):
 
 - **Alt+Enter**: rofi-chromium-bookmarks
-- **Shifr+Enter**: rofi-window-switcher
+- **Shift+Enter**: rofi-window-switcher
 - **Ctrl+Alt+Enter**: rofi-path-launcher
 - **Ctrl+Shift+Enter**: rofi-todo-list
 - **Ctrl+Shift+e**: rofi-system-menu
 - **Ctrl+Alt+x**: rofi-tmuxinator
+- **Ctrl+Alt+s**: rofi-screenshot
 
 ## Utilities
 
