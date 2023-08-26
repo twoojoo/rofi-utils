@@ -1,0 +1,28 @@
+@theme "theme"
+
+window {
+	width: 		80px;
+	location:	southeast;
+	y-offset:	-23px;
+	horizontal-align:       1;
+}
+
+listview {
+	reverse: 	false;
+}
+
+mainbox {
+   	children:	[ inputbar, listview ];
+}
+
+element-text {
+	horizontal-align:       1;
+}
+
+element selected {
+	background-color:   #AA0000FF;
+}
+
+inputbar {
+	children:			[ prompt ];
+}

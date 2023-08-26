@@ -1,0 +1,15 @@
+@theme "theme"
+
+window {
+	width: 		250px;
+	location:	southwest;
+	y-offset:	-23px;
+}
+
+listview {
+	reverse: 	true;
+}
+
+mainbox {
+   	children:	[ listview, inputbar ];
+}
