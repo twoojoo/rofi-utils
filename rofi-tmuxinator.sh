@@ -21,4 +21,4 @@ if [[ "$choice" == "" ]];
 fi
 
 echo $choice
-eval "alacritty -e tmuxinator start '$choice' &"
+eval "alacritty -e bash -c \"echo -e '\e]2;$choice\007'; tmuxinator start '$choice'\""
