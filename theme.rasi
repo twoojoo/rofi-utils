@@ -1,5 +1,5 @@
 configuration {
-	font:				"Iosevka Nerd Font 10.3";
+	font:				"Iosevka Nerd Font 11.3";
 }
 
 @import "theme-colors.rasi"
