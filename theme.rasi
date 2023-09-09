@@ -9,9 +9,10 @@ window {
 	background-color:   @al;
 	text-color:         @fg;
 	width:				40%;
-	location:			center;
+	location:			north;
 	border:				3px;
 	border-color:		@al;
+	y-offset:			2%;
 }
 
 prompt {
