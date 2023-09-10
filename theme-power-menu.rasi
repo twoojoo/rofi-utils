@@ -1,23 +1,23 @@
 @theme "theme"
 
 window {
-	width: 		120px;
-	location:	southeast;
-	y-offset:	-23px;
+	width: 		140px;
+	//location:	southeast;
+	//y-offset:	-23px;
 }
 
 listview {
-	reverse: 	true;
+	//reverse: 	true;
 }
 
 mainbox {
-   	children:	[ listview ];
+   	children:	[ inputbar, listview ];
 }
 
 element-text {
-	horizontal-align:       1;
+	// horizontal-align:       1;
 }
 
 element selected {
-	background-color:   #AA0000FF;
+	//background-color:   #AA0000FF;
 }

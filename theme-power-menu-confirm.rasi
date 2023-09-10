@@ -1,10 +1,10 @@
 @theme "theme"
 
 window {
-	width: 		80px;
-	location:	southeast;
-	y-offset:	-23px;
-	horizontal-align:       1;
+	width: 		100px;
+	//location:	southeast;
+	//y-offset:	-23px;
+	//horizontal-align:       1;
 }
 
 listview {
@@ -16,11 +16,11 @@ mainbox {
 }
 
 element-text {
-	horizontal-align:       1;
+	//horizontal-align:       1;
 }
 
 element selected {
-	background-color:   #AA0000FF;
+	background-color:   #990000FF;
 }
 
 inputbar {

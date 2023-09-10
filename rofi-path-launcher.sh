@@ -40,7 +40,7 @@ config=$(cat $config_path)
 function get_program {
 	programs_num=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l) 
 	if [[ $programs_num -gt 10 ]]; then programs_num=10; fi
-	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme_narrow -l $programs_num -p " Path Launcher:")
+	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme_narrow -l $programs_num -p " Path Launcher:" -method fuzzy)
 	if [[ $program == $ADD_OPTION ]]; then add_program;
 	elif [[ $program == $REMOVE_OPTION ]]; then remove_program;
 	elif [[ $program != "" ]]; then get_program_path $program; 
@@ -53,7 +53,7 @@ function get_program_path {
 	pattern=".${program}.paths[]"
 	lines_num=$({ echo $config | jq -r -c $pattern; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l)
 	if [[ $lines_num -gt 10 ]]; then lines_num=10; fi
-	path=$({ echo $config | jq -r -c $pattern | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; }  | rofi -dmenu -i -theme $theme -l $lines_num -p " $program (path)")
+	path=$({ echo $config | jq -r -c $pattern | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; }  | rofi -dmenu -i -theme $theme -l $lines_num -p " $program (path)" -fuzzy)
 
 	if [[ $path == "" ]]; then get_program;
 	elif [[ $path == $ADD_OPTION ]]; then add_path_to_program $program;
@@ -76,7 +76,7 @@ function execute_command {
 function add_path_to_program {
 	program="$1"
 
-	path=$(rofi -dmenu -i -theme $theme -l 0 -p " $program (add path)")
+	path=$(rofi -dmenu -i -theme $theme -l 0 -p " $program (add path)" -method fuzzy)
 
 	if [[ "$path" == "" ]]
 		then get_program_path $program

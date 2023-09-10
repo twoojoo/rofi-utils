@@ -6,15 +6,15 @@ script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme-power-menu.rasi"
 theme_confirm="${script_dir}theme-power-menu-confirm.rasi"
 
-POWEROFF="poweroff  ◯"
-REBOOT="reboot  ◯"
-LOGOUT="logout  ◯"
+POWEROFF=" ◯   poweroff"
+REBOOT=" ◯   reboot"
+LOGOUT=" ◯   logout"
 
 choice=$({ 
 	echo "$POWEROFF"; 
 	echo "$REBOOT"; 
 	echo "$LOGOUT"; 
-} | rofi -dmenu -l 3 -theme $theme)
+} | rofi -dmenu -l 3 -theme $theme -p "sys:")
 
 prompt=""
 
@@ -25,8 +25,8 @@ else exit
 fi
 
 confirm=$({ 
-	echo "yes  ◯"; 
-	echo "no  ◯";
+	echo " ◯   yes"; 
+	echo " ◯   no";
 } | rofi -dmenu -l 2 -theme $theme_confirm -p $prompt)
 
 if [[ "$confirm" == "yes  ◯" ]]; then
