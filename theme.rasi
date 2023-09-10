@@ -19,12 +19,12 @@ prompt {
     enabled: 			true;
 	padding: 			4px;
 	background-color: 	@al;
-	text-color: 		@fg;
+	text-color: 		@fga;
 }
 
 entry {
 	background-color:	@al;
-	text-color:			@fg;
+	text-color:			@fga;
 	expand:				true;
 	horizontal-align:	0;
 	padding:			4px 0px 0px0px;
@@ -34,7 +34,7 @@ entry {
 inputbar {
 	children:			[ prompt, entry ];
 	background-color:   @al;
-	text-color:         @fg;
+	text-color:         @fga;
 	expand:             false;
 }
 

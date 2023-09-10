@@ -3,7 +3,10 @@
 * {
   al:   #202020FF;
   bg:   #101010FF;
-  fg:   #EAEAEAFF;
+  //fg:   #27E415FF;
+  //fga:   #27E415FF;
+  fg:  #EAEAEAFF;
+  fga:  #EAEAEAFF;
   ac:	  #285577FF;
   slb:	#EAEAEAFF;
 }

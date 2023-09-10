@@ -9,6 +9,8 @@ script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme.rasi"
 theme_narrow="${script_dir}theme-narrow.rasi"
 
+prompt_icon=""
+
 ## get config from options
 config_path=""
 for (( i=1; i <= "$#"; i++ )); do
@@ -40,7 +42,7 @@ config=$(cat $config_path)
 function get_program {
 	programs_num=$({ echo $config | jq '. |= keys' | jq -r -c '.[]'; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l) 
 	if [[ $programs_num -gt 10 ]]; then programs_num=10; fi
-	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme_narrow -l $programs_num -p " Path Launcher:" -method fuzzy)
+	program=$({ echo $config | jq '. |= keys' | jq -r -c '.[]' | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; } | rofi -dmenu -i -theme $theme_narrow -l $programs_num -p "$prompt_icon Path Launcher:" -method fuzzy)
 	if [[ $program == $ADD_OPTION ]]; then add_program;
 	elif [[ $program == $REMOVE_OPTION ]]; then remove_program;
 	elif [[ $program != "" ]]; then get_program_path $program; 
@@ -53,7 +55,7 @@ function get_program_path {
 	pattern=".${program}.paths[]"
 	lines_num=$({ echo $config | jq -r -c $pattern; echo $ADD_OPTION; echo $REMOVE_OPTION; } | wc -l)
 	if [[ $lines_num -gt 10 ]]; then lines_num=10; fi
-	path=$({ echo $config | jq -r -c $pattern | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; }  | rofi -dmenu -i -theme $theme -l $lines_num -p " $program (path)" -fuzzy)
+	path=$({ echo $config | jq -r -c $pattern | sort; echo $ADD_OPTION; echo $REMOVE_OPTION; }  | rofi -dmenu -i -theme $theme -l $lines_num -p "$prompt_icon $program (path)" -fuzzy)
 
 	if [[ $path == "" ]]; then get_program;
 	elif [[ $path == $ADD_OPTION ]]; then add_path_to_program $program;
@@ -102,7 +104,7 @@ function remove_path_from_program {
 
 	lines_num=$(echo $config | jq -r -c $pattern | wc -l)
 	if [[ $lines_num -gt 10 ]]; then lines_num=10; fi
-	path=$(echo $config | jq -r -c $pattern | sort | rofi -dmenu -i -theme $theme -l $lines_num -p " $program (remove path)")
+	path=$(echo $config | jq -r -c $pattern | sort | rofi -dmenu -i -theme $theme -l $lines_num -p "$prompt_icon $program (remove path)")
 
 	if [[ "$path" != "" ]]; then
 		confirm=$(ask_for_confirmation "$path")
@@ -122,7 +124,7 @@ function remove_path_from_program {
 }
 
 function add_program {
-	program_name=$(rofi -dmenu -i -theme $theme -l 0 -p " Path Launcher (program name)")
+	program_name=$(rofi -dmenu -i -theme $theme -l 0 -p "$prompt_icon Path Launcher (program name)")
 
 	if [[ "$program_name" == "" ]]; 
 		then get_program;
@@ -142,7 +144,7 @@ function add_program {
 function remove_program {
 	programs_num=$(echo $config | jq '. |= keys' | jq -r -c '.[]' | wc -l) 
 	if [[ $programs_num -gt 10 ]]; then programs_num=10; fi
-	program=$(echo $config | jq '. |= keys' | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -l $programs_num -p " Path Launcher (remove program):")
+	program=$(echo $config | jq '. |= keys' | jq -r -c '.[]' | sort | rofi -dmenu -i -theme $theme -l $programs_num -p "$prompt_icon Path Launcher (remove program):")
 
 	if [[ "$program" != "" ]]; then 
 		confirm=$(ask_for_confirmation "$program")
@@ -165,7 +167,7 @@ function print_error {
 }
 
 function ask_for_confirmation {
-	echo $(rofi -dmenu -theme $theme -p " Confirm ($1) ? [yes/no]" -l 0)
+	echo $(rofi -dmenu -theme $theme -p "$prompt_icon Confirm ($1) ? [yes/no]" -l 0)
 }
 
 get_program
