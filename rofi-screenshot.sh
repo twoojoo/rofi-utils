@@ -3,26 +3,48 @@
 script_path=$(realpath "$0")
 script_name=$(echo $0 | rev | cut -d "/" -f1 | rev)
 script_dir="${script_path/$script_name/""}"
-theme="${script_dir}theme-narrow.rasi"
+theme="${script_dir}theme-medium.rasi"
 
-SCREEN="  ◯   screen"
-SELECTION="  ◯   selection"
-SCREEN_CLIPBOARD_ONLY="  ◯   screen (clipboard only)"
-SELECTION_CLIPBOARD_ONLY="  ◯   selection (clipboard only)"
+options=(
+	"  ◯   SCREEN [ file ]"
+	"  ◯   SCREEN [ clipboard ]"
+	"  ◯   SCREEN [ clipboard + file ]"
+	"  ◯   SCREEN [ clipboard + edit ]"
+	"  ◯   SCREEN [ clipboard + file + edit ]"
+	"  ◯   SELECTION [ file ]"
+	"  ◯   SELECTION [ clipboard ]"
+	"  ◯   SELECTION [ clipboard + file ]"
+	"  ◯   SELECTION [ clipboard + edit ]"
+	"  ◯   SELECTION [ clipboard + file + edit ]"
+)
 
-cmd=$({ 
-	echo "$SCREEN"; 
-	echo "$SELECTION"; 
-	echo "$SCREEN_CLIPBOARD_ONLY"; 
-	echo "$SELECTION_CLIPBOARD_ONLY"; 
-} | rofi -dmenu -l 4 -theme $theme -p "screenshot:")
+selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -theme $theme -p "screenshot:")
+if [[ "$selected" == "" ]]; then exit; fi
 
-mkdir "$HOME/Screenshots" 2> /dev/null
+img=""
+file_path="$HOME/Screenshots/sc-$(date +"%Y-%m-%dT%H:%M:%S%:z").png"
 
-FILE_PATH="$HOME/Screenshots/sc-$(date +"%Y-%m-%dT%H:%M:%S%:z").png"
+if [[ "$selected" == *"SCREEN"* ]]; 
+	then img=$(maim 2> /dev/null | tee $file_path); 
+	else img=$(maim -s 2> /dev/null | tee $file_path); 
+fi
 
-if [[ "$cmd" == "$SCREEN" ]]; then maim | tee $FILE_PATH | xclip -selection clipboard -t image/png
-elif [[ "$cmd" == "$SELECTION" ]]; then maim -s | tee $FILE_PATH | xclip -selection clipboard -t image/png
-elif [[ "$cmd" == "$SCREEN_CLIPBOARD_ONLY" ]]; then maim | xclip -selection clipboard -t image/png
-elif [[ "$cmd" == "$SELECTION_CLIPBOARD_ONLY" ]]; then maim -s | xclip -selection clipboard -t image/png
+if [[ "$img" == "" ]]; 
+	then exit; 
+fi
+
+if [[ "$selected" == *"edit"* ]]; then 
+	echo "editing: $file_path"
+	img=$(pinta $file_path 2> /dev/null)
+	echo $img
+fi
+
+if [[ "$selected" == *"clipboard"* ]]; then 
+	echo "to clipboard: $file_path"
+	cat $file_path | xclip -selection clipboard -t image/png
+fi
+
+if [[ "$selected" != *"file"*  ]]; 
+	echo "removing: $file_path"
+	then rm $file_path; 
 fi
