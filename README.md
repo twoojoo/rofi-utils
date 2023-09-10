@@ -16,6 +16,8 @@ A collection of useful custom utilities based on [rofi](https://github.com/davat
 
 - **nerd-fonts** (all utils)
 - **xdotool** (rofi-todo-list)
+- **xclip** (rofi-screenshot)
+- **pinta** (rofi-screenshot)
 
 ## Installation
 Just clone this repository and set a shortcut for each script.

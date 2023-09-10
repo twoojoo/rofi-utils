@@ -6,19 +6,19 @@ script_dir="${script_path/$script_name/""}"
 theme="${script_dir}theme-medium.rasi"
 
 options=(
-	"  ◯   SCREEN [ file ]"
-	"  ◯   SCREEN [ clipboard ]"
-	"  ◯   SCREEN [ clipboard + file ]"
-	"  ◯   SCREEN [ clipboard + edit ]"
-	"  ◯   SCREEN [ clipboard + file + edit ]"
-	"  ◯   SELECTION [ file ]"
-	"  ◯   SELECTION [ clipboard ]"
-	"  ◯   SELECTION [ clipboard + file ]"
-	"  ◯   SELECTION [ clipboard + edit ]"
-	"  ◯   SELECTION [ clipboard + file + edit ]"
+	" ◯  SCREEN [ file ]"
+	" ◯  SCREEN [ clipboard ]"
+	" ◯  SCREEN [ clipboard + file ]"
+	" ◯  SCREEN [ clipboard + edit ]"
+	" ◯  SCREEN [ clipboard + file + edit ]"
+	" ◯  SELECTION [ file ]"
+	" ◯  SELECTION [ clipboard ]"
+	" ◯  SELECTION [ clipboard + file ]"
+	" ◯  SELECTION [ clipboard + edit ]"
+	" ◯  SELECTION [ clipboard + file + edit ]"
 )
 
-selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -theme $theme -p "screenshot:")
+selected=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 5 -theme $theme -p " caputre:")
 if [[ "$selected" == "" ]]; then exit; fi
 
 img=""
