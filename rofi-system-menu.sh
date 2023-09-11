@@ -24,12 +24,15 @@ elif [[ "$choice" == "$LOGOUT" ]]; then prompt="logout?"
 else exit
 fi
 
+yes=" ◯   yes"
+no=" ◯   no"
+
 confirm=$({ 
-	echo " ◯   yes"; 
-	echo " ◯   no";
+	echo $yes; 
+	echo $no;
 } | rofi -dmenu -l 2 -theme $theme_confirm -p $prompt)
 
-if [[ "$confirm" == "yes  ◯" ]]; then
+if [[ "$confirm" == "$yes" ]]; then
 	echo $choice;
 	if [[ "$choice" == "$POWEROFF" ]]; then poweroff & sleep 90
 	elif [[ "$choice" == "$REBOOT" ]]; then reboot & sleep 90
